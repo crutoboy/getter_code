@@ -1,4 +1,15 @@
+# import tkinter.filedialog as tk
 
+# print(tk.askopenfilename())
+
+# import json
+
+# jsn = json.load(open('ex.json'))
+# print(jsn)
+# print(type(jsn))
+# print(jsn['token'])
+# print(jsn['admins'])
+# print(type(jsn['admins']))
 
 # res = 256_000_000_000
 # count = 1
@@ -12,12 +23,22 @@
 
 
 
-# import pandas as pd
+import pandas as pd
+import time
 
-# db = pd.read_excel('C:/Users/Иван/Desktop/ВСОШ 8 red.xlsx')
+start = time.time()
+db = pd.read_excel('C:/Users/Иван/Desktop/ВСОШ 8 red.xlsx')
+print(time.time() - start)
 
-# print(db[db['Класс'].isin(['8Б'])])
-
+start = time.time()
+lst = set(db['ФИО'].to_list())
+print('qwe' in lst)
+# print(set(db['ФИО'].to_list()))
+# db = db[db['ФИО'].isin(['nan'])]
+# db = db[db['Класс'].isin(['8Б'])]
+# db = db[db['Итальянский язык'].isin(['sit29/sch771190/8/2g759g'])]
+# print(db)
+print(time.time() - start)
 
 
 
