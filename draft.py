@@ -1,3 +1,34 @@
+lst = {1:2, 3:4}
+
+print(list(lst.keys()))
+# print(len(lst))
+# import random
+
+# lst = [1,2,3,4,5,6,7,8,9]
+
+# print(random.choice(lst))
+
+
+# import json
+# import requests
+# lst = []
+# for _ in range(100):
+#     r = requests.get('http://free-generator.ru/generator.php?action=word&type=1')
+#     lst.append(r.json()['word']['word'])
+# print(lst)
+
+
+
+
+# lst = []
+# while True:
+#     tmp = input()
+#     if tmp == 'стоп':
+#         break
+#     lst.append(tmp)
+# print(lst)
+
+
 # import tkinter.filedialog as tk
 
 # print(tk.askopenfilename())
@@ -22,7 +53,7 @@
 # print(count)
 
 
-
+'''
 import pandas as pd
 import time
 
@@ -39,7 +70,7 @@ print('qwe' in lst)
 # db = db[db['Итальянский язык'].isin(['sit29/sch771190/8/2g759g'])]
 # print(db)
 print(time.time() - start)
-
+'''
 
 
 # import sqlite3
