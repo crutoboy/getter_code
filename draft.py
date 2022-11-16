@@ -1,6 +1,7 @@
-lst = {1:2, 3:4}
-
-print(list(lst.keys()))
+lst = [2,3,1,4,9,5].sort()
+# ls//t
+for i in lst:
+    print(i)
 # print(len(lst))
 # import random
 
