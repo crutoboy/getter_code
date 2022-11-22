@@ -73,6 +73,3 @@ def callback_worker(call):
 
 
 bot.infinity_polling()
-
-
-# лрнегонк гнкбд нк бнеб ир
