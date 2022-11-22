@@ -43,8 +43,15 @@ def admin (message):
 
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
-    if message.text.lower() == list(active_secret_word.keys())[0]:
-        bot.send_message(message.from_user.id, list(active_secret_word.values())[0])
+    if message.text.lower() == list(active_secret_word.keys())[0] and str(message.from_user.id) not in registered_users:
+        if message.from_user.id in admins:
+            bot.send_message(message.from_user.id, f'Это слово используется для регистрации в {list(active_secret_word.values())[0]} класс')
+        else:
+            keyboard = types.InlineKeyboardMarkup()
+            btn1 = types.InlineKeyboardButton(text = 'Да', callback_data = 'reg|ask_class|y')
+            btn2 = types.InlineKeyboardButton(text = 'Нет', callback_data = 'reg|ask_class|n')
+            keyboard.add(btn1, btn2)
+            bot.send_message(message.from_user.id, f'Ты учиишься в {list(active_secret_word.values())[0]} классе?')
 
 
 @bot.callback_query_handler(func=lambda call: True)
@@ -68,8 +75,17 @@ def callback_worker(call):
         elif call_data[1] == 'delete':
             active_secret_word.clear()
             admin (call)
+    if call_data[0] == 'reg':
+        if call_data[1] == 'ask_class':
+            if call_data[2] == 'y':
+                registered_users.add(str(call.from_user.id))
+            if call_data[2] == 'n':
+                bot.delete_message(call.from_user.id, call.message.id)
 
 
 
 
 bot.infinity_polling()
+
+bot.edit_message_reply_markup()
+bot.edit_message_text()

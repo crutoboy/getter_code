@@ -1,7 +1,6 @@
-lst = [2,3,1,4,9,5].sort()
-# ls//t
-for i in lst:
-    print(i)
+# lst = [2,3,1,4,9,5].sort()
+# for i in lst:
+#     print(i)
 # print(len(lst))
 # import random
 
@@ -54,24 +53,27 @@ for i in lst:
 # print(count)
 
 
-'''
+from numpy import nan
 import pandas as pd
 import time
 
-start = time.time()
 db = pd.read_excel('C:/Users/Иван/Desktop/ВСОШ 8 red.xlsx')
-print(time.time() - start)
 
 start = time.time()
-lst = set(db['ФИО'].to_list())
-print('qwe' in lst)
+# lst = set(db['ФИО'].to_list())
+# print('qwe' in lst)
 # print(set(db['ФИО'].to_list()))
-# db = db[db['ФИО'].isin(['nan'])]
+tmp = db[db['ФИО'].isin([nan])]
+# print(tmp)
+# tmp['ФИО'][2] = '5'
+# print()
 # db = db[db['Класс'].isin(['8Б'])]
 # db = db[db['Итальянский язык'].isin(['sit29/sch771190/8/2g759g'])]
-# print(db)
+# print(tmp.loc)
+tmp = tmp.reset_index(drop=True)
+tmp.loc[0, 'ФИО'] = 56
+print(db)
 print(time.time() - start)
-'''
 
 
 # import sqlite3
