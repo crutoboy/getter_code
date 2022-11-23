@@ -60,20 +60,15 @@ import time
 db = pd.read_excel('C:/Users/Иван/Desktop/ВСОШ 8 red.xlsx')
 
 start = time.time()
-# lst = set(db['ФИО'].to_list())
-# print('qwe' in lst)
-# print(set(db['ФИО'].to_list()))
-tmp = db[db['ФИО'].isin([nan])]
-# print(tmp)
-# tmp['ФИО'][2] = '5'
-# print()
-# db = db[db['Класс'].isin(['8Б'])]
-# db = db[db['Итальянский язык'].isin(['sit29/sch771190/8/2g759g'])]
-# print(tmp.loc)
-tmp = tmp.reset_index(drop=True)
-tmp.loc[0, 'ФИО'] = 56
-print(db)
+
+# print(db[db['ФИО'] == nan])
+db[(db['ФИО'].isnull()) & (db['Класс'] == '8А')].reset_index(drop=True).loc[0]['ФИО'] = '3547681'
+# print(db[(db['ФИО'].isnull()) & (db['Класс'] == '8А')].reset_index(drop=True).loc[0]['ФИО'])
+
 print(time.time() - start)
+# print(db)
+
+
 
 
 # import sqlite3
