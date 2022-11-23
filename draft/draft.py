@@ -61,12 +61,12 @@ db = pd.read_excel('C:/Users/Иван/Desktop/ВСОШ 8 red.xlsx')
 
 start = time.time()
 
-# print(db[db['ФИО'] == nan])
-db[(db['ФИО'].isnull()) & (db['Класс'] == '8А')].reset_index(drop=True).loc[0]['ФИО'] = '3547681'
-# print(db[(db['ФИО'].isnull()) & (db['Класс'] == '8А')].reset_index(drop=True).loc[0]['ФИО'])
+# print((db['ФИО'].isnull()) & (db['Класс'] == '8А'))
+db.at[db[(db['ФИО'].isnull()) & (db['Класс'] == '8А')].first_valid_index(), 'ФИО'] = '3547681'
+# db[(db['ФИО'].isnull()) & (db['Класс'] == '8А')].reset_index(drop=True).loc[0]['ФИО'] = '3547681'
 
 print(time.time() - start)
-# print(db)
+print(db)
 
 
 
