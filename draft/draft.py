@@ -1,3 +1,28 @@
+import time
+import openpyxl as xl
+
+file = xl.load_workbook('C:/Users/Иван/Desktop/ВСОШ 8 red.xlsx', False)
+
+db = file[file.sheetnames[0]]
+
+start = time.time()
+
+# print(db['1'][-1].column)
+header = tuple(map(lambda x: x.value, db['1']))
+# print(header)
+
+for i in db.rows:
+    if i[header.index('ФИО')].value == None and i[header.index('Класс')].value == '8Б':
+        print(tuple(map(lambda x: x.value, i)))
+        i[header.index('ФИО')].value = '16418426'
+        break
+    # print(tuple(map(lambda x: x.value, i)))
+
+print(time.time() - start)
+# db.close()
+file.save('C:/Users/Иван/Desktop/ВСОШ 8 red.xlsx')
+
+
 # lst = [2,3,1,4,9,5].sort()
 # for i in lst:
 #     print(i)
@@ -53,20 +78,18 @@
 # print(count)
 
 
-from numpy import nan
-import pandas as pd
-import time
+# from numpy import nan
+# import pandas as pd
+# import time
 
-db = pd.read_excel('C:/Users/Иван/Desktop/ВСОШ 8 red.xlsx')
+# db = pd.read_excel('C:/Users/Иван/Desktop/ВСОШ 8 red.xlsx')
 
-start = time.time()
+# start = time.time()
 
-# print((db['ФИО'].isnull()) & (db['Класс'] == '8А'))
-db.at[db[(db['ФИО'].isnull()) & (db['Класс'] == '8А')].first_valid_index(), 'ФИО'] = '3547681'
-# db[(db['ФИО'].isnull()) & (db['Класс'] == '8А')].reset_index(drop=True).loc[0]['ФИО'] = '3547681'
+# db.at[db[(db['ФИО'].isnull()) & (db['Класс'] == '8А')].first_valid_index(), 'ФИО'] = '3547681'
 
-print(time.time() - start)
-print(db)
+# print(time.time() - start)
+# print(db)
 
 
 
