@@ -1,0 +1,2 @@
+# Начало работы
+Для начала работы с проектом необходимо создать файл config.json по шаблону из [config_example.json](config_example.json) или переименновать [config_example.json](config_example.json) в config.json, далее дополнить его 
