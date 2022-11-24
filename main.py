@@ -87,5 +87,5 @@ def callback_worker(call):
 
 bot.infinity_polling()
 
-bot.edit_message_reply_markup()
-bot.edit_message_text()
+# bot.edit_message_reply_markup()
+# bot.edit_message_text()

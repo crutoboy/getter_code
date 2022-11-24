@@ -13,7 +13,7 @@ header = tuple(map(lambda x: x.value, db['1']))
 
 for i in db.rows:
     if i[header.index('ФИО')].value == None and i[header.index('Класс')].value == '8Б':
-        print(tuple(map(lambda x: x.value, i)))
+        # print(tuple(map(lambda x: x.value, i)))
         i[header.index('ФИО')].value = '16418426'
         break
     # print(tuple(map(lambda x: x.value, i)))
